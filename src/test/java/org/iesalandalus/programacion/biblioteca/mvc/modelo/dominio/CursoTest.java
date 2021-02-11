@@ -1,6 +1,9 @@
 package org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio;
 
 import static org.junit.Assert.*;
+
+import org.iesalandalus.programacion.biblioteca.mvc.dominio.Curso;
+
 import static org.hamcrest.CoreMatchers.is;
 
 
