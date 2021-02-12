@@ -28,7 +28,7 @@ public class Alumno {
 	
 	/**
 	 * Constructor copia:
-	 * @param e: Copia del objeto Alumno. 
+	 * @param copiaAlumno: Copia del objeto Alumno. 
 	 */
 	public Alumno (Alumno copiaAlumno) {
 		if(copiaAlumno == null)
@@ -159,7 +159,9 @@ public class Alumno {
 
 	
 	/********OTROS MÉTODOS********/
-	
+	/**
+	 * Método hashCode.
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -168,6 +170,10 @@ public class Alumno {
 		return result;
 	}
 
+	/**
+	 * Método para comparar dos alumnos.
+	 * Dos alumnos son iguales si tienen el mismo correo.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -185,6 +191,10 @@ public class Alumno {
 		return true;
 	}
 	
+	/**
+	 * Método que muestra la información del alumno:
+	 * nombre, iniciales, correo y curso.
+	 */
 	@Override
 	public String toString() {
 		return String.format("nombre=%s (%s), correo=%s, curso=%s", 
