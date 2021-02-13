@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.biblioteca.mvc.dominio;
+package org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

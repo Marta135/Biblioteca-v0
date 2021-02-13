@@ -9,10 +9,10 @@ import static org.junit.Assert.*;
 
 import java.time.LocalDate;
 
-import org.iesalandalus.programacion.biblioteca.mvc.dominio.Alumno;
-import org.iesalandalus.programacion.biblioteca.mvc.dominio.Curso;
-import org.iesalandalus.programacion.biblioteca.mvc.dominio.Libro;
-import org.iesalandalus.programacion.biblioteca.mvc.dominio.Prestamo;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

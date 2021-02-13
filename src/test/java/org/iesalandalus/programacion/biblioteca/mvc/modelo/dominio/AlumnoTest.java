@@ -6,8 +6,8 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
-import org.iesalandalus.programacion.biblioteca.mvc.dominio.Alumno;
-import org.iesalandalus.programacion.biblioteca.mvc.dominio.Curso;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

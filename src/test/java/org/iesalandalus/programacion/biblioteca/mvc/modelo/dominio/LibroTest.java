@@ -6,7 +6,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
-import org.iesalandalus.programacion.biblioteca.mvc.dominio.Libro;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
