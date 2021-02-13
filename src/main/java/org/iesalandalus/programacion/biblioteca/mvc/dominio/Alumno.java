@@ -20,7 +20,7 @@ public class Alumno {
 	 * @param correo: Correo del alumno.
 	 * @param curso: Curso al que pertenece el alumno. 
 	 */
-	public Alumno (String nombre, String correo, Curso curso) {
+	public Alumno (String nombre, String correo, Curso curso) throws NullPointerException, IllegalArgumentException {
 		setNombre(nombre);
 		setCorreo (correo);
 		setCurso (curso);
@@ -30,7 +30,7 @@ public class Alumno {
 	 * Constructor copia:
 	 * @param copiaAlumno: Copia del objeto Alumno. 
 	 */
-	public Alumno (Alumno copiaAlumno) {
+	public Alumno (Alumno copiaAlumno) throws NullPointerException, IllegalArgumentException {
 		if(copiaAlumno == null)
 			throw new NullPointerException("ERROR: No es posible copiar un alumno nulo.");
 		setNombre(copiaAlumno.getNombre());

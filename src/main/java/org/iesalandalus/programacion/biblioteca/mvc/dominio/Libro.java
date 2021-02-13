@@ -18,7 +18,7 @@ public class Libro {
 	 * @param autor: Autor del libro.
 	 * @param numPaginas: Número de páginas del libro. 
 	 */
-	public Libro (String titulo, String autor, int numPaginas) {
+	public Libro (String titulo, String autor, int numPaginas) throws NullPointerException, IllegalArgumentException {
 		setTitulo(titulo);
 		setAutor(autor);
 		setNumPaginas(numPaginas);
@@ -28,7 +28,7 @@ public class Libro {
 	 * Constructor copia. 
 	 * @param copiaLibro: Copia del objeto Libro.
 	 */
-	public Libro (Libro copiaLibro) {
+	public Libro (Libro copiaLibro) throws NullPointerException, IllegalArgumentException {
 		if (copiaLibro == null) {
 			throw new NullPointerException("ERROR: No es posible copiar un libro nulo.");
 		}
