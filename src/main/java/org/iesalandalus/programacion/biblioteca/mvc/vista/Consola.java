@@ -52,7 +52,7 @@ public class Consola {
 			if (!Opcion.esOrdinalValido(opcion)) {
 				System.out.println("La opción escogida no es válida. Elige una opción: ");
 			}
-		} while (!Opcion.esOrdinalalido(opcion));
+		} while (!Opcion.esOrdinalValido(opcion));
 		return opcion;
 	}
 	
@@ -138,7 +138,7 @@ public class Consola {
 	 * Método para introducir los datos de un préstamo ficticio.
 	 * @return prestamoFicticio
 	 */
-	public Prestamo leerPrestamoFicticio() {
+	public static Prestamo leerPrestamoFicticio() {
 		return Prestamo.getPrestamoFicticio(leerAlumnoFicticio(), leerLibroFicticio());
 	}
 	
