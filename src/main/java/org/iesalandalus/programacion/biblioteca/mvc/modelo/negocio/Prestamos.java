@@ -23,7 +23,7 @@ public class Prestamos {
 	 * Constructor con parámetros.
 	 * @param capacidad
 	 */
-	public Prestamos (int capacidad) {
+	public Prestamos (int capacidad) throws NullPointerException, IllegalArgumentException {
 		if(capacidad <= 0) {
 			throw new IllegalArgumentException("ERROR: La capacidad debe ser mayor que cero.");
 		}
@@ -36,7 +36,7 @@ public class Prestamos {
 	 * Método que devuelve una copia profunda de la colección.
 	 * @return copiaProfundaPrestamos
 	 */
-	public Prestamo[] get() {
+	public Prestamo[] get() throws NullPointerException, IllegalArgumentException {
 		return copiaProfundaPrestamos();
 	}
 	
@@ -44,7 +44,7 @@ public class Prestamos {
 	 * Método que devuelve una copia de la colección de alumnos.
 	 * @return copiaAlumnos
 	 */
-	private Prestamo[] copiaProfundaPrestamos() {
+	private Prestamo[] copiaProfundaPrestamos() throws NullPointerException, IllegalArgumentException {
 		Prestamo[] copiaPrestamos = new Prestamo[capacidad];
 		for (int i = 0; !tamanoSuperado(i); i++) {
 			copiaPrestamos[i] = new Prestamo(coleccionPrestamos[i]);
@@ -57,7 +57,7 @@ public class Prestamos {
 	 * @param alumno
 	 * @return prestamosAlumno
 	 */
-	public Prestamo[] get(Alumno alumno) {
+	public Prestamo[] get(Alumno alumno) throws NullPointerException, IllegalArgumentException {
 		if (alumno == null) {
 			throw new NullPointerException("ERROR: El alumno no puede ser nulo.");
 		}
@@ -76,7 +76,7 @@ public class Prestamos {
 	 * @param libro
 	 * @return
 	 */
-	public Prestamo[] get(Libro libro) {
+	public Prestamo[] get(Libro libro) throws NullPointerException, IllegalArgumentException {
 		if (libro == null) {
 			throw new NullPointerException("ERROR: El libro no puede ser nulo.");
 		}
@@ -95,7 +95,7 @@ public class Prestamos {
 	 * @param fechaPrestamo
 	 * @return prestamosFecha
 	 */
-	public Prestamo[] get(LocalDate fechaPrestamo) {
+	public Prestamo[] get(LocalDate fechaPrestamo) throws NullPointerException, IllegalArgumentException {
 		if (fechaPrestamo == null) {
 			throw new NullPointerException("ERROR: La fecha no puede ser nula.");
 		}
@@ -146,7 +146,7 @@ public class Prestamos {
 	 * @param prestamo
 	 * @throws OperationNotSupportedException
 	 */
-	public void prestar(Prestamo prestamo) throws OperationNotSupportedException {
+	public void prestar(Prestamo prestamo) throws OperationNotSupportedException, NullPointerException, IllegalArgumentException {
 		if (prestamo == null) {
 			throw new NullPointerException("ERROR: No se puede prestar un préstamo nulo.");
 		}
@@ -204,7 +204,7 @@ public class Prestamos {
 	 * @param fechaDevolucion
 	 * @throws OperationNotSupportedException
 	 */
-	public void devolver(Prestamo prestamo, LocalDate fechaDevolucion) throws OperationNotSupportedException {
+	public void devolver(Prestamo prestamo, LocalDate fechaDevolucion) throws OperationNotSupportedException, NullPointerException, IllegalArgumentException {
 		if (prestamo == null) {
 			throw new NullPointerException("ERROR: No se puede devolver un préstamo nulo.");
 		}
@@ -224,7 +224,7 @@ public class Prestamos {
 	 * @param prestamo
 	 * @return prestamo
 	 */
-	public Prestamo buscar(Prestamo prestamo) {
+	public Prestamo buscar(Prestamo prestamo) throws NullPointerException, IllegalArgumentException {
 		if (prestamo == null) {
 			throw new IllegalArgumentException("ERROR: No se puede buscar un préstamo nulo.");
 		}

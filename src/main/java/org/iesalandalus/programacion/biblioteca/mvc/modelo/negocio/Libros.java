@@ -20,7 +20,7 @@ public class Libros {
 	 * Constructor con parámetros.
 	 * @param capacidad
 	 */
-	public Libros(int capacidad) {
+	public Libros(int capacidad) throws NullPointerException, IllegalArgumentException {
 		if(capacidad <= 0) {
 			throw new IllegalArgumentException("ERROR: La capacidad debe ser mayor que cero.");
 		}
@@ -33,7 +33,7 @@ public class Libros {
 	 * Método que devuelve una copia profunda de la colección.
 	 * @return copiaProfundaLibros
 	 */
-	public Libro[] get() {
+	public Libro[] get() throws NullPointerException, IllegalArgumentException {
 		return copiaProfundaLibros();
 	}
 	
@@ -41,7 +41,7 @@ public class Libros {
 	 * Método que devuelve una copia de la colección de libros.
 	 * @return copiaLibros
 	 */
-	private Libro[] copiaProfundaLibros() {
+	private Libro[] copiaProfundaLibros() throws NullPointerException, IllegalArgumentException {
 		Libro[] copiaLibros = new Libro[capacidad];
 		for (int i = 0; !tamanoSuperado(i); i++) {
 			copiaLibros[i] = new Libro(coleccionLibros[i]);
@@ -76,7 +76,7 @@ public class Libros {
 	 * @param libro
 	 * @throws OperationNotSupportedException
 	 */
-	public void insertar(Libro libro) throws OperationNotSupportedException {
+	public void insertar(Libro libro) throws OperationNotSupportedException, NullPointerException, IllegalArgumentException {
 		if (libro == null) {
 			throw new NullPointerException("ERROR: No se puede insertar un libro nulo.");
 		}

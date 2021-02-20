@@ -43,7 +43,7 @@ public class Alumno {
 	 * @param correo
 	 * @return nombre, correo y curso
 	 */
-	public static Alumno getAlumnoFicticio (String correo) {
+	public static Alumno getAlumnoFicticio (String correo) throws NullPointerException, IllegalArgumentException {
 		return new Alumno("Marta García", correo, Curso.CUARTO);
 	}
 	

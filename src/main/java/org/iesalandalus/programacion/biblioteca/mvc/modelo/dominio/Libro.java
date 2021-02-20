@@ -43,7 +43,7 @@ public class Libro {
 	 * @param autor
 	 * @return título, autor y número de páginas. 
 	 */
-	public static Libro getLibroFicticio(String titulo, String autor) {
+	public static Libro getLibroFicticio(String titulo, String autor) throws NullPointerException, IllegalArgumentException {
 		return new Libro(titulo, autor, 100);
 	}
 	
@@ -121,7 +121,8 @@ public class Libro {
 	 * @return puntos
 	 */
 	public float getPuntos() {
-		return PUNTOS_PREMIO + (getNumPaginas() / PAGINAS_PARA_RECOMPENSA) * PUNTOS_PREMIO;
+		float puntos = (numPaginas / PAGINAS_PARA_RECOMPENSA + 1) * PUNTOS_PREMIO;
+		return puntos;
 	}
 
 	/**
@@ -168,7 +169,7 @@ public class Libro {
 	 */
 	@Override
 	public String toString() {
-		return "título=" + this.titulo + ", autor=" + this.autor + ", número de páginas=" + this.numPaginas;
+		return String.format("título=%s, autor=%s, número de páginas=%s", titulo, autor, numPaginas);
 	}
 
 }

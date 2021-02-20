@@ -25,6 +25,7 @@ public class Consola {
 	 */
 	public static void mostrarMenu() {
 		System.out.println("MENÚ DE OPCIONES");
+		System.out.println("-----------------");
 		for (Opcion opcion : Opcion.values()) {
 			System.out.println(opcion);
 		}
@@ -35,9 +36,12 @@ public class Consola {
 	 * @param mensaje
 	 */
 	public static void mostrarCabecera(String mensaje) {
-		System.out.printf("%n%s&n", mensaje);
-		String formatoStr = "%0" + mensaje.length() + "d%n";
-		System.out.println(String.format(formatoStr, 0).replace("0", "-"));
+		System.out.println(mensaje);
+		int longitudCadena = mensaje.length();
+		for (int i = 0; i < longitudCadena; i++) {
+			System.out.print("-");
+		}
+		System.out.println("\n");
 	}
 	
 	/**
@@ -47,7 +51,7 @@ public class Consola {
 	public static int elegirOpcion() {
 		int opcion;
 		do {
-			System.out.println("\nElige una opción: ");
+			System.out.print("\nElige una opción: ");
 			opcion = Entrada.entero();
 			if (!Opcion.esOrdinalValido(opcion)) {
 				System.out.println("La opción escogida no es válida. Elige una opción: ");
@@ -61,16 +65,19 @@ public class Consola {
 	 * @return Alumno
 	 */
 	public static Alumno leerAlumno() {
-		System.out.println("Introduce el nombre del alumno");
-		String nombre = Entrada.cadena();
-		System.out.println("Introduce el correo del alumno: ");
-		String correo = Entrada.cadena();
-		
-		int numeroCurso;
+		Alumno alumno = null;
 		Curso curso = null;
+		String nombre;
+		String correo;
+		int numeroCurso;
+		
+		System.out.print("Introduce el nombre del alumno: ");
+		nombre = Entrada.cadena();
+		System.out.print("Introduce el correo del alumno: ");
+		correo = Entrada.cadena();
 		
 		do {
-			System.out.println("Introduce el curso del alumno: ");
+			System.out.print("Introduce el curso del alumno: ");
 			numeroCurso = Entrada.entero();
 		} while (numeroCurso<1 || numeroCurso>4);
 		
@@ -88,7 +95,8 @@ public class Consola {
 			curso = Curso.CUARTO;
 			break;
 		}
-		return new Alumno(nombre, correo, curso);
+		alumno = new Alumno(nombre, correo, curso); 
+		return alumno;
 	}
 	
 	/**
@@ -105,11 +113,11 @@ public class Consola {
 	 * @return Libro
 	 */
 	public static Libro leerLibro() {
-		System.out.println("Introduce el título del libro: ");
+		System.out.print("Introduce el título del libro: ");
 		String titulo = Entrada.cadena();
-		System.out.println("Introduce el autor del libro: ");
+		System.out.print("Introduce el autor del libro: ");
 		String autor = Entrada.cadena();
-		System.out.println("Introduce el número de páginas del libro: ");
+		System.out.print("Introduce el número de páginas del libro: ");
 		int numPaginas = Entrada.entero();
 		return new Libro(titulo, autor, numPaginas);
 	}
@@ -119,9 +127,9 @@ public class Consola {
 	 * @return libroFicticio
 	 */
 	public static Libro leerLibroFicticio() {
-		System.out.println("\nIntroduce el título del libro: ");
+		System.out.print("Introduce el título del libro: ");
 		String titulo = Entrada.cadena();
-		System.out.println("Introduce el autor del libro: ");
+		System.out.print("Introduce el autor del libro: ");
 		String autor = Entrada.cadena();
 		return Libro.getLibroFicticio(titulo, autor);
 	}

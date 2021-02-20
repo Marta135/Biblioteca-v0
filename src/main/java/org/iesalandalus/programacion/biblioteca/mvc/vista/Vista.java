@@ -35,7 +35,7 @@ public class Vista {
 	 * Método para inicializar la aplicación.
 	 */
 	public void comenzar() {
-		Consola.mostrarCabecera("Gestión de préstamos de la Biblioteca del IES Al-Ándalus");
+		Consola.mostrarCabecera("GESTIÓN DE PRÉSTAMOS DE LA BIBLIOTECA <<IES AL-ÁNDALUS>>");
 		int opcion;
 		do {
 			Consola.mostrarMenu();
@@ -56,11 +56,11 @@ public class Vista {
 	 * Método que llama a otro para insertar un alumno.
 	 */
 	public void insertarAlumno() {
-		Consola.mostrarCabecera("Insertar Alumno");
+		Consola.mostrarCabecera("INSERTAR ALUMNO");
 		try {
 			controlador.insertar(Consola.leerAlumno());
 			System.out.println("Alumno insertado correctamente.");
-		} catch (OperationNotSupportedException | IllegalArgumentException e) {
+		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -69,13 +69,13 @@ public class Vista {
 	 * Método que llama a otro para buscar a un alumno.
 	 */
 	public void buscarAlumno() {
-		Consola.mostrarCabecera("Buscar Alumno");
+		Consola.mostrarCabecera("BUSCAR ALUMNO");
 		Alumno alumno;
 		try {
 			alumno = controlador.buscar(Consola.leerAlumnoFicticio());
 			String mensaje = (alumno != null) ? alumno.toString() : "No existe dicho alumno.";
 			System.out.println(mensaje);
-		} catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -84,11 +84,11 @@ public class Vista {
 	 * Método que llama a otro para borrar a un alumno.
 	 */
 	public void borrarAlumno() {
-		Consola.mostrarCabecera("Borrar Alumno");
+		Consola.mostrarCabecera("BORRAR ALUMNO");
 		try {
 			controlador.borrar(Consola.leerAlumnoFicticio());
-			System.out.println("Alumno borrado satisfactoriamente.");
-		} catch (OperationNotSupportedException | IllegalArgumentException e) {
+			System.out.println("Alumno borrado correctamente.");
+		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
 	}	
@@ -97,7 +97,7 @@ public class Vista {
 	 * Método que llama a otro para listar todos los alumnos.
 	 */
 	public void listarAlumnos() {
-		Consola.mostrarCabecera("Listado de Alumnos");
+		Consola.mostrarCabecera("LISTADO DE ALUMNOS");
 		Alumno[] alumnos = controlador.getAlumnos();
 		if (alumnos[0] != null) {
 			for (Alumno alumno : alumnos) {
@@ -115,11 +115,11 @@ public class Vista {
 	 * Método que llama a otro para insertar un libro.
 	 */
 	public void insertarLibro() {
-		Consola.mostrarCabecera("Insertar Libro");
+		Consola.mostrarCabecera("INSERTAR LIBRO");
 		try {
 			controlador.insertar(Consola.leerLibro());
 			System.out.println("Libro insertado correctamente.");
-		} catch (OperationNotSupportedException | IllegalArgumentException e) {
+		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -128,13 +128,13 @@ public class Vista {
 	 * Método que llama a otro para buscar un libro.
 	 */
 	public void buscarLibro() {
-		Consola.mostrarCabecera("Buscar Libro");
+		Consola.mostrarCabecera("BUSCAR LIBRO");
 		Libro libro;
 		try {
-			libro = controlador.buscar(Consola.leerLibro());
+			libro = controlador.buscar(Consola.leerLibroFicticio());
 			String mensaje = (libro != null) ? libro.toString() : "No existe dicho libro.";
 			System.out.println(mensaje);
-		} catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -143,11 +143,11 @@ public class Vista {
 	 * Método que llama a otro para borrar un libro.
 	 */
 	public void borrarLibro() {
-		Consola.mostrarCabecera("Borrar Libro");
+		Consola.mostrarCabecera("BORRAR LIBRO");
 		try {
-			controlador.borrar(Consola.leerLibro());
-			System.out.println("Libro borrado satisfactoriamente.");
-		} catch (OperationNotSupportedException | IllegalArgumentException e) {
+			controlador.borrar(Consola.leerLibroFicticio());
+			System.out.println("Libro borrado correctamente.");
+		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
 		
@@ -157,7 +157,7 @@ public class Vista {
 	 * Método que llama a otro para listar todos los libros.
 	 */
 	public void listarLibros() {
-		Consola.mostrarCabecera("Listado de Libros");
+		Consola.mostrarCabecera("LISTADO DE LIBROS");
 		Libro[] libros = controlador.getLibros();
 		if (libros[0] != null) {
 			for (Libro libro : libros) {
@@ -175,7 +175,7 @@ public class Vista {
 	 * Método que llama a otro para prestar un libro.
 	 */
 	public void prestarLibro() {
-		Consola.mostrarCabecera("Insertar Préstamo de libro");
+		Consola.mostrarCabecera("PRÉSTAMO DE LIBRO");
 		try {
 			controlador.prestar(Consola.leerPrestamo());
 			System.out.println("Libro prestado correctamente.");
@@ -188,7 +188,7 @@ public class Vista {
 	 * Método que llama a otro para devolver un libro.
 	 */
 	public void devolverLibro() {
-		Consola.mostrarCabecera("Devolver libro prestado");
+		Consola.mostrarCabecera("DEVOLUCIÓN DE LIBRO");
 		try {
 			controlador.devolver(Consola.leerPrestamo(), Consola.leerFecha());
 			System.out.println("Libro devuelto correctamente.");
@@ -201,13 +201,13 @@ public class Vista {
 	 * Método que llama a otro para buscar un préstamo.
 	 */
 	public void buscarPrestamo() {
-		Consola.mostrarCabecera("Buscar Préstamo");
+		Consola.mostrarCabecera("BUSCAR PRÉSTAMO");
 		Prestamo prestamo;
 		try {
 			prestamo = controlador.buscar(Consola.leerPrestamoFicticio());
 			String mensaje = (prestamo != null) ? prestamo.toString() : "No existe dicho préstamo.";
 			System.out.println(mensaje);
-		} catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -216,11 +216,11 @@ public class Vista {
 	 * Método que llama a otro para borrar un préstamo.
 	 */
 	public void borrarPrestamo() {
-		Consola.mostrarCabecera("Borrar Préstamo");
+		Consola.mostrarCabecera("BORRAR PRÉSTAMO");
 		try {
 			controlador.borrar(Consola.leerPrestamoFicticio());
-			System.out.println("Préstamo borrado satisfactoriamente.");
-		} catch (OperationNotSupportedException | IllegalArgumentException e) {
+			System.out.println("Préstamo borrado correctamente.");
+		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -229,7 +229,7 @@ public class Vista {
 	 * Método que llama a otro para listar todos los préstamos.
 	 */
 	public void listarPrestamos() {
-		Consola.mostrarCabecera("Listado de Préstamos");
+		Consola.mostrarCabecera("LISTADO DE PRÉSTAMOS");
 		Prestamo[] prestamos = controlador.getPrestamos();
 		if (prestamos[0] != null) {
 			for (Prestamo prestamo : prestamos) {
@@ -238,7 +238,7 @@ public class Vista {
 				}
 			}
 		} else {
-			System.out.println("No hay préstamos que mostrar.");
+			System.out.println("No hay préstamos para mostrar.");
 		}
 	}
 	
@@ -246,7 +246,7 @@ public class Vista {
 	 * Método que llama a otro para listar los préstamos de un alumno.
 	 */
 	public void listarPrestamosAlumno() {
-		Consola.mostrarCabecera("Listado de préstamos por alumno");
+		Consola.mostrarCabecera("LISTADO DE PRÉSTAMOS POR ALUMNO");
 		Prestamo[] prestamos =  controlador.getPrestamos(Consola.leerAlumno());
 		if (prestamos[0] != null) {
 			for (Prestamo prestamo : prestamos) {
@@ -255,7 +255,7 @@ public class Vista {
 				}
 			}
 		} else {
-			System.out.println("No hay préstamos que mostrar para dicho alumno.");
+			System.out.println("No hay préstamos de dicho alumno.");
 		}
 	}
 
@@ -263,7 +263,7 @@ public class Vista {
 	 * Método que llama a otro para listar los préstamos de un libro.
 	 */
 	public void listarPrestamosLibro() {
-		Consola.mostrarCabecera("Listado de Préstamos por Libro");
+		Consola.mostrarCabecera("LISTADO DE PRÉSTAMOS POR LIBRO");
 		Prestamo[] prestamos = controlador.getPrestamos(Consola.leerLibro());
 		if (prestamos[0] != null) {
 			for (Prestamo prestamo : prestamos) {
@@ -272,7 +272,7 @@ public class Vista {
 				}
 			}
 		} else {
-			System.out.println("No hay préstamos que mostrar para dicho libro.");
+			System.out.println("No hay préstamos de dicho libro.");
 		}
 	}
 	
@@ -280,7 +280,7 @@ public class Vista {
 	 * Método que llama a otro para listar los préstamos por fecha.
 	 */
 	public void listarPrestamosFecha() {
-		Consola.mostrarCabecera("Listado de Préstamos por Fecha");
+		Consola.mostrarCabecera("LISTADO DE PRÉSTAMOS POR FECHA");
 		Prestamo[] prestamos = controlador.getPrestamos(Consola.leerFecha());
 		if (prestamos[0] != null) {
 			for (Prestamo prestamo : prestamos) {
@@ -289,7 +289,7 @@ public class Vista {
 				}
 			}
 		} else {
-			System.out.println("No hay préstamos que mostrar para dicha fecha.");
+			System.out.println("No hay préstamos de dicha fecha.");
 		}
 	}
 	

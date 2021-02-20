@@ -60,9 +60,9 @@ public class Prestamo {
 		if(libro == null) {
 			throw new NullPointerException("ERROR: El libro no puede ser nulo.");
 		}
-		return new Prestamo(alumno.getAlumnoFicticio(alumno.getCorreo()), 
-				libro.getLibroFicticio(libro.getTitulo(), libro.getAutor()), 
-				LocalDate.now());
+		alumno = Alumno.getAlumnoFicticio(alumno.getCorreo());
+		libro = Libro.getLibroFicticio(libro.getTitulo(), libro.getAutor());
+		return new Prestamo(alumno, libro, LocalDate.now());
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class Prestamo {
 			return 0;
 		} else {
 			long diasIntermedios = ChronoUnit.DAYS.between(getFechaPrestamo(), getFechaDevolucion());
-			if(diasIntermedios <= MAX_DIAS_PRESTAMO && diasIntermedios > 0) {
+			if (diasIntermedios <= MAX_DIAS_PRESTAMO && diasIntermedios > 0) {
 				return Math.round(libro.getPuntos()/diasIntermedios);
 			} else {
 				return 0;

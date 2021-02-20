@@ -39,7 +39,7 @@ public class Modelo {
 	 * @param alumno
 	 * @throws OperationNotSupportedException
 	 */
-	public void insertar(Alumno alumno) throws OperationNotSupportedException {
+	public void insertar(Alumno alumno) throws OperationNotSupportedException, NullPointerException {
 		alumnos.insertar(alumno);
 	}
 	
@@ -48,7 +48,7 @@ public class Modelo {
 	 * @param libro
 	 * @throws OperationNotSupportedException
 	 */
-	public void insertar(Libro libro) throws OperationNotSupportedException {
+	public void insertar(Libro libro) throws OperationNotSupportedException, NullPointerException  {
 		libros.insertar(libro);
 	}
 	
@@ -78,7 +78,7 @@ public class Modelo {
 	 * @param fechaDevolucion
 	 * @throws OperationNotSupportedException
 	 */
-	public void devolver(Prestamo prestamo, LocalDate fechaDevolucion) throws OperationNotSupportedException {
+	public void devolver(Prestamo prestamo, LocalDate fechaDevolucion) throws OperationNotSupportedException, NullPointerException, IllegalArgumentException {
 		if (prestamos.buscar(prestamo) == null) {
 			throw new OperationNotSupportedException("ERROR: No se puede devolver un préstamo no prestado.");
 		}
@@ -90,7 +90,7 @@ public class Modelo {
 	 * @param alumno
 	 * @return alumno
 	 */
-	public Alumno buscar(Alumno alumno) {
+	public Alumno buscar(Alumno alumno) throws NullPointerException, IllegalArgumentException {
 		return alumnos.buscar(alumno);
 	}
 	
@@ -99,7 +99,7 @@ public class Modelo {
 	 * @param libro
 	 * @return libro
 	 */
-	public Libro buscar(Libro libro) {
+	public Libro buscar(Libro libro) throws NullPointerException, IllegalArgumentException {
 		return libros.buscar(libro);
 	}
 	
@@ -108,7 +108,7 @@ public class Modelo {
 	 * @param prestamo
 	 * @return prestamo
 	 */
-	public Prestamo buscar(Prestamo prestamo) {
+	public Prestamo buscar(Prestamo prestamo) throws NullPointerException, IllegalArgumentException {
 		return prestamos.buscar(prestamo);
 	}
 	
@@ -117,7 +117,7 @@ public class Modelo {
 	 * @param alumno
 	 * @throws OperationNotSupportedException
 	 */
-	public void borrar(Alumno alumno) throws OperationNotSupportedException {
+	public void borrar(Alumno alumno) throws OperationNotSupportedException, IllegalArgumentException {
 		alumnos.borrar(alumno);
 	}
 	
@@ -126,7 +126,7 @@ public class Modelo {
 	 * @param libro
 	 * @throws OperationNotSupportedException
 	 */
-	public void borrar(Libro libro) throws OperationNotSupportedException {
+	public void borrar(Libro libro) throws OperationNotSupportedException, IllegalArgumentException {
 		libros.borrar(libro);
 	}
 	
@@ -135,7 +135,7 @@ public class Modelo {
 	 * @param prestamo
 	 * @throws OperationNotSupportedException
 	 */
-	public void borrar(Prestamo prestamo) throws OperationNotSupportedException {
+	public void borrar(Prestamo prestamo) throws OperationNotSupportedException, IllegalArgumentException {
 		prestamos.borrar(prestamo);
 	}
 	

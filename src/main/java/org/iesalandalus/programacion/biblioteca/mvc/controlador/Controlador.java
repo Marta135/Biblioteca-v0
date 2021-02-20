@@ -51,7 +51,7 @@ public class Controlador {
 	 * Método que llama a otro de la clase Vista para terminar la aplicación. 
 	 */
 	public void terminar() {
-		vista.terminar();
+		System.out.println("¡Hasta pronto!");
 	}
 	
 	/**
@@ -94,25 +94,28 @@ public class Controlador {
 	/**
 	 * Método que llama a otro de la clase Modelo para buscar un alumno. 
 	 * @param alumno
+	 * @return alumno
 	 */
-	public void buscar(Alumno alumno) {
-		modelo.buscar(alumno);
+	public Alumno buscar(Alumno alumno) {
+		return modelo.buscar(alumno);
 	}
 	
 	/**
 	 * Método que llama a otro de la clase Modelo para buscar un libro. 
 	 * @param libro
+	 * @return libro
 	 */
-	public void buscar(Libro libro) {
-		modelo.buscar(libro);
+	public Libro buscar(Libro libro) {
+		return modelo.buscar(libro);
 	}
 	
 	/**
 	 * Método que llama a otro de la clase Modelo para buscar un préstamo. 
 	 * @param prestamo
+	 * @return prestamo
 	 */
-	public void buscar(Prestamo prestamo) {
-		modelo.buscar(prestamo);
+	public Prestamo buscar(Prestamo prestamo) {
+		return modelo.buscar(prestamo);
 	}
 	
 	/**
@@ -189,8 +192,8 @@ public class Controlador {
 	 * @param fecha
 	 * @return prestamos
 	 */
-	public Prestamo[] getPrestamos(LocalDate fecha) {
-		return modelo.getPrestamos(fecha);
+	public Prestamo[] getPrestamos(LocalDate fechaPrestamo) {
+		return modelo.getPrestamos(fechaPrestamo);
 	}
 	
 }

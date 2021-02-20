@@ -19,7 +19,7 @@ public class Alumnos {
 	 * Constructor con parámetros.
 	 * @param capacidad
 	 */
-	public Alumnos (int capacidad) {
+	public Alumnos (int capacidad) throws NullPointerException, IllegalArgumentException {
 		if(capacidad <= 0) {
 			throw new IllegalArgumentException("ERROR: La capacidad debe ser mayor que cero.");
 		}
@@ -32,7 +32,7 @@ public class Alumnos {
 	 * Método que devuelve una copia profunda de la colección.
 	 * @return copiaProfundaAlumnos
 	 */
-	public Alumno[] get() {
+	public Alumno[] get() throws NullPointerException, IllegalArgumentException {
 		return copiaProfundaAlumnos();
 	}
 	
@@ -40,7 +40,7 @@ public class Alumnos {
 	 * Método que devuelve una copia de la colección de alumnos.
 	 * @return copiaAlumnos
 	 */
-	private Alumno[] copiaProfundaAlumnos() {
+	private Alumno[] copiaProfundaAlumnos() throws NullPointerException, IllegalArgumentException {
 		Alumno[] copiaAlumnos = new Alumno[capacidad];
 		for (int i = 0; !tamanoSuperado(i); i++) {
 			copiaAlumnos[i] = new Alumno(coleccionAlumnos[i]);
@@ -75,7 +75,7 @@ public class Alumnos {
 	 * @param alumno
 	 * @throws OperationNotSupportedException
 	 */
-	public void insertar(Alumno alumno) throws OperationNotSupportedException {
+	public void insertar(Alumno alumno) throws OperationNotSupportedException, NullPointerException, IllegalArgumentException {
 		if (alumno == null) {
 			throw new NullPointerException("ERROR: No se puede insertar un alumno nulo.");
 		}
@@ -133,7 +133,7 @@ public class Alumnos {
 	 * @param alumno
 	 * @return alumno
 	 */
-	public Alumno buscar(Alumno alumno) {
+	public Alumno buscar(Alumno alumno) throws NullPointerException, IllegalArgumentException {
 		if (alumno == null) {
 			throw new IllegalArgumentException("ERROR: No se puede buscar un alumno nulo.");
 		}
