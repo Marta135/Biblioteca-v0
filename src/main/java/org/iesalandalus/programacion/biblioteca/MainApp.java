@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion;
+package org.iesalandalus.programacion.biblioteca;
 
 import org.iesalandalus.programacion.biblioteca.mvc.controlador.Controlador;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.Modelo;
