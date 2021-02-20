@@ -2,7 +2,6 @@ package org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio;
 
 import javax.naming.OperationNotSupportedException;
 
-import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 
 public class Libros {
